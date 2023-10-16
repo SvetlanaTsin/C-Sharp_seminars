@@ -5,11 +5,6 @@
 Console.Clear();
 System.Console.WriteLine("Enter the number: ");
 int number = Convert.ToInt32(Console.ReadLine());
-if (number > 99)
-{
-    System.Console.WriteLine(number.ToString()[2]);
-}
-else
-{
-    System.Console.WriteLine("There is no 3rd digit");
-}
+if (number > 99) System.Console.WriteLine(number.ToString()[2]);
+
+else System.Console.WriteLine("There is no 3rd digit");
