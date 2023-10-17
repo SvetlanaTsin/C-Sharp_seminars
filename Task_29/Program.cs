@@ -23,3 +23,4 @@ void PrintArray(int[] arr)
 }
 int[] UserArray = GetRandArray(8);
 PrintArray(UserArray);
+
