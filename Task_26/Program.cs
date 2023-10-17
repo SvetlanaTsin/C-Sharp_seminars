@@ -7,7 +7,7 @@ int userNumber = Convert.ToInt32(Console.ReadLine());
 int Num(int a)
 {
     int count = 0;
-    for (int i = a; i > 0; i / 10)
+    for (int i = a; i > 0; i /= 10)
     {
         count = count + 1;
     }
