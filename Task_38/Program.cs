@@ -14,7 +14,7 @@ double[] GetRandomArray(int length)
     return array;
 }
 
-double PrintArray(double[] array)
+void PrintArray(double[] array)
 {
     for (int i = 0; i < array.Length; i++)
     {
@@ -22,52 +22,37 @@ double PrintArray(double[] array)
     }
 }
 
-// double FindMax(double[] array)
-// {
-//     double max = array[0];
-//     for (int i = 1; i < array.Length; i++)
-//     {
-//         if (array[i] > max) max = array[i];
-//     }
-//     return max;
-// }
+double FindMax(double[] array)
+{
+    double max = array[0];
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i] > max) max = array[i];
+    }
+    return max;
+}
 
-// double FindMin(double[] array)
-// {
-//     double min = array[0];
-//     for (int i = 1; i < array.Length; i++)
-//     {
-//         if (array[i] < min) min = array[i];
-//     }
-//     return min;
-// }
+double FindMin(double[] array)
+{
+    double min = array[0];
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i] < min) min = array[i];
+    }
+    return min;
+}
 
 double CalcDifferenceBetweenMaxMin(double[] array)
 {
-    double FindMax(double[] array)
-    {
-        double max = array[0];
-        for (int i = 1; i < array.Length; i++)
-        {
-        if (array[i] > max) max = array[i];
-        }
-        return max;
-    }
-
-    double FindMin(double[] array)
-    {
-        double min = array[0];
-        for (int i = 1; i < array.Length; i++)
-        {
-            if (array[i] < min) min = array[i];
-        }
-        return min;
-    }
-
-    System.Console.WriteLine(FindMax(array) - FindMin(array));
+    double max = FindMax(array);
+    double min = FindMin(array);
+    double result = max - min;
+    return result;
 }
 
-int[] userArray = GetRandomArray(9);
+double[] userArray = GetRandomArray(9);
 PrintArray(userArray);
 System.Console.WriteLine();
-System.Console.WriteLine($"Разность между максимальным и минимальным элементом: {CalcDifferenceBetweenMaxMin(userArray)}");
+
+double userResult = CalcDifferenceBetweenMaxMin(userArray);
+System.Console.WriteLine($"Разность между максимальным и минимальным элементом: {userResult}");
