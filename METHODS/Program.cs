@@ -82,16 +82,39 @@ void PrintArray(int[,] matrix)
 
 int[,] = new int[i, j]; //так создается новый двумерный массив
 
-// void FillMatriх(int[,] matrix)
-// {
-//     for (int i = 0; i < matrix.GetLength(0); i++)
-//     {
-//         for
+void FillMatriх(int[,] matrix)
+{
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
         for (int j = 0; j < matrix.GetLength(1); j++) 
         {
             matrix[i, j] = new Random().Next(start,end)
-        }
-        System.Console.WriteLine(); 
+        }    
     }
 }
 
+// МЕТОД ВЫЧИСЛЕНИЯ ФАКТОРИАЛА ЧЕРЕЗ РЕКУРСИЮ
+
+int Factorial(int n)
+{
+    // 1!=1, 0!=1
+    if (n == 1) return 1;
+    else return n * Factorial(n - 1); 
+}
+for (int i = 1; i < n; i++)
+{
+    System.Console.WriteLine($"{i}! = {Factorial[i]}");
+}
+
+// ЧИСЛА ФИБОНАЧЧИ ЧЕРЕЗ РЕКУРСИЮ 
+// медленный метод, если надо выводить более 40 чисел
+
+double Fibonacci(int n)
+{
+    if (n == 1 || n == 2) return 1;
+    else return Fibonacci(n - 1) + Fibonacci(n - 2);
+}
+for (int i = 1; i < n; i++)
+{
+    System.Console.WriteLine(Fibonacci(i));
+}
