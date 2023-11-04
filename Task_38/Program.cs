@@ -7,9 +7,9 @@ Console.Clear();
 double[] GetRandomArray(int length)
 {
     double[] array = new double[length];
-    for (int i = 0; i < length; i++)
+    for (int i = 0; i < array.Length; i++)
     {
-        array[i] = new Random().Next(0, 10);
+        array[i] = Math.Round((new Random().Next(0, 20) + new Random().NextDouble()), 2);
     }
     return array;
 }
@@ -35,7 +35,7 @@ double FindMax(double[] array)
 double FindMin(double[] array)
 {
     double min = array[0];
-    for (int i = 0; i < array.Length; i++)
+    for (int i = 0; i < array.Length; i++)  
     {
         if (array[i] < min) min = array[i];
     }
@@ -44,9 +44,7 @@ double FindMin(double[] array)
 
 double CalcDifferenceBetweenMaxMin(double[] array)
 {
-    double max = FindMax(array);
-    double min = FindMin(array);
-    double result = max - min;
+    double result = FindMax(array) - FindMin(array);
     return result;
 }
 

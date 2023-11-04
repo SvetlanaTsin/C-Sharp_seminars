@@ -1,26 +1,42 @@
 ﻿/*
-42. Напишите программу, которая преобразует десятичное число в двоичное (%2 и записываем в обратном порядке)
-45 - 101101
-3- 11
-2 - 10
+Пользователь вводит с клавиатуры M чисел. 
+Посчитайте, сколько чисел больше 0 ввёл пользователь.
 */
-
 Console.Clear();
-System.Console.WriteLine("Введите число: ");
-int userNumber = Convert.ToInt32(Console.ReadLine());
 
-string Binary(int number)
+System.Console.WriteLine("Введите размер массива: ");
+int size = Convert.ToInt32(Console.ReadLine());
+int[] userArray = new int[size];
+
+for (int i = 0; i < userArray.Length; i++)
 {
-    string result = ""; // пока нулевой результат в типе string, записывается как пустая строка ""
-    int temp = 0;
-    for (int i = number; i > 0; i /= 2)
-    {
-        temp = i % 2;
-        result = temp + result; // в типе string + дает запись по порядку 2+2=22
-    }
-
-return result;
+    System.Console.WriteLine("Введите число: ");
+    int n = Convert.ToInt32(Console.ReadLine());
+    userArray[i] = n;  
 }
 
-string userResult = Binary(userNumber);
-System.Console.WriteLine(userResult);
+int CountNeg(int[] arr)
+{
+    int count = 0;
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i] < 0) count = count + 1;
+    }
+    return count;
+}
+
+
+void PrintArray(int[] array) 
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        System.Console.Write(array[i]);
+        if (i < array.Length - 1)
+        {
+            System.Console.Write(", ");
+        }   
+    }
+}
+PrintArray(userArray);
+int userResult = CountNeg(userArray);
+System.Console.WriteLine($" -> {userResult}");

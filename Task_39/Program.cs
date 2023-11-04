@@ -40,7 +40,7 @@ int[] ReversArray(int[] arr)
     return arr;
 }
 
-int[] userArray = GetRandomArray(0, 10, 6);
+int[] userArray = GetRandomArray(0, 10, 7);
 PrintArray(userArray);
 System.Console.WriteLine();
 int[] revesedArray = ReversArray(userArray);

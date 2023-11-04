@@ -17,6 +17,18 @@ int[] GetRandomArray(int start, int end, int length) // варианты: int[] 
     return array;
 }
 
+// СОЗДАНИЕ МАССИВА СЛУЧАЙНЫХ ВЕЩЕСТВЕННЫХ ЧИСЕЛ (С ОКРУГЛЕНИЕМ ДО СОТЫХ)
+
+double[] GetRandomArray(int length)
+{
+    double[] array = new double[length];
+    for (int i = 0; i < array.Length; i++)
+    {
+        array[i] = Math.Round((new Random().Next(0, 10) + new Random().NextDouble()), 2); // складываем случайное целое число и случайную дробную часть, округляем до сотых
+    }
+    return array;
+}
+
 // ВЫВОД И ПЕЧАТЬ МАССИВА
 
 //Вариант 1: печать со знаком табуляции между элементами
