@@ -25,9 +25,8 @@ void LineIntersection (double a1, double c1, double a2, double c2)
     else 
     {
         double x = Math.Round((c2 - c1) / (a1 - a2), 2);
-        double y = Math.Round((a2 * x + c2), 2);
+        double y = Math.Round((a2 * x + c2), 2 );
         System.Console.WriteLine($"Прямые пересекаются в точке с координатами X: {x} и Y: {y}");
     }
 }
-
 LineIntersection (k1, b1, k2, b2);
