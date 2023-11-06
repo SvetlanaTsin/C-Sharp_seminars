@@ -15,12 +15,12 @@ for (int i = 0; i < userArray.Length; i++)
     userArray[i] = n;  
 }
 
-int CountNeg(int[] arr)
+int CountPos(int[] arr)
 {
     int count = 0;
     for (int i = 0; i < arr.Length; i++)
     {
-        if (arr[i] < 0) count = count + 1;
+        if (arr[i] > 0) count = count + 1;
     }
     return count;
 }
