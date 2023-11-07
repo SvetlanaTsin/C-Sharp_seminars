@@ -75,7 +75,7 @@ int TakeNumber(string message)
 
 // ПЕЧАТЬ ДВУМЕРНОГО МАССИВА
 
-void PrintArray(int[,] matrix)
+void PrintMatrix(int[,] matrix)
 {
     for (int i = 0; i < matrix.GetLength(0); i++) // matrix.GetLength(0) определяет количество строк
     {

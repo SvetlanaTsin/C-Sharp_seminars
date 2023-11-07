@@ -19,9 +19,9 @@ int userColumns = TakeNumber("Введите количество столбцо
 int[,] FillMatriх(int start, int end, int rows, int columns)
 {
     int[,] matrix = new int[rows, columns];
-    for (int i = 0; i < matrix.GetLength(0); i++)
+    for (int i = 0; i < rows; i++)
     {
-        for (int j = 0; j < matrix.GetLength(1); j++)
+        for (int j = 0; j < columns; j++)
         {
             matrix[i, j] = new Random().Next(start, end);
         }
@@ -29,17 +29,17 @@ int[,] FillMatriх(int start, int end, int rows, int columns)
     return matrix;
 }
 
-void PrintArray(int[,] matrix)
+void PrintMatrix(int[,] matrix)
 {
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            System.Console.Write($" {matrix[i, j]}  ");
+            System.Console.Write($" {matrix[i, j]} \t");
         }
         System.Console.WriteLine();
     }
 }
 
 int[,] userMatrix = FillMatriх(userStart, userEnd, userRows, userColumns);
-PrintArray(userMatrix);
+PrintMatrix(userMatrix);
