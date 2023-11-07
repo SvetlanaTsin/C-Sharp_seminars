@@ -81,7 +81,7 @@ void PrintArray(int[,] matrix)
     {
         for (int j = 0; j < matrix.GetLength(1); j++) // matrix.GetLength(1) определяет количество столбцов
         {
-            System.Console.WriteLine($"{matrix[i, j]} "); //так мы выводим одну строку с пробелами между элементами
+            System.Console.Write($"{matrix[i, j]} "); //так мы выводим одну строку с пробелами между элементами
         }
         System.Console.WriteLine(); //так мы переходим на след строку после пробегания всех столбцов
     }
@@ -92,7 +92,7 @@ void PrintArray(int[,] matrix)
 
 // СОЗДАНИЕ ДВУМЕРНОГО МАССИВА И ЗАПОЛНЕНИЕ СЛУЧАЙНЫМИ ЧИСЛАМИ
 
-int[,] = new int[i, j]; //так создается новый двумерный массив
+int[,] matrix = new int[i, j]; //так создается новый двумерный массив
 
 void FillMatriх(int[,] matrix)
 {
@@ -100,7 +100,7 @@ void FillMatriх(int[,] matrix)
     {
         for (int j = 0; j < matrix.GetLength(1); j++) 
         {
-            matrix[i, j] = new Random().Next(start,end)
+            matrix[i, j] = new Random().Next(start,end);
         }    
     }
 }
