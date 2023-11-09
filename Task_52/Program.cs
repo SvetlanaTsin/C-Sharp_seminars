@@ -1,5 +1,5 @@
 ﻿/*
-52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+52. 
 */
 Console.Clear();
 
@@ -57,4 +57,4 @@ PrintMatrix(matrix);
 System.Console.WriteLine();
 
 double[] userResult = AverageInColumns(matrix);
-PrintArray(userResult);
+PrintArray(userResult);Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
