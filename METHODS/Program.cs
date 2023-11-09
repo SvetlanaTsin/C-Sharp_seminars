@@ -81,9 +81,9 @@ void PrintMatrix(int[,] matrix)
     {
         for (int j = 0; j < matrix.GetLength(1); j++) // matrix.GetLength(1) определяет количество столбцов
         {
-            System.Console.Write($"{matrix[i, j]} "); //так мы выводим одну строку с пробелами между элементами
+            System.Console.Write($"{matrix[i, j]} \t"); //так мы выводим одну строку с табуляцией между элементами (так ровнее)
         }
-        System.Console.WriteLine(); //так мы переходим на след строку после пробегания всех столбцов
+        System.Console.WriteLine(); //так мы переходим на след строку после пробегания первой строки
     }
 }
 
@@ -118,8 +118,11 @@ for (int i = 1; i < n; i++)
     System.Console.WriteLine($"{i}! = {Factorial[i]}");
 }
 
-// ЧИСЛА ФИБОНАЧЧИ ЧЕРЕЗ РЕКУРСИЮ 
-// медленный метод, если надо выводить более 40 чисел
+
+// ЧИСЛА ФИБОНАЧЧИ 
+
+// Вариант 1: через рекурсию
+// (медленный метод, если надо выводить более 40 чисел)
 
 double Fibonacci(int n)
 {
@@ -129,4 +132,56 @@ double Fibonacci(int n)
 for (int i = 1; i < n; i++)
 {
     System.Console.WriteLine(Fibonacci(i));
+}
+
+//Вариант 2: через цикл
+
+int[] Fibonacci(int length)
+{
+        int[] array = new int[length];
+        array[0] = 0;
+        array[1] = 1;
+        for (int i = 2; i < array.Length; i++)
+        {
+            array[i] = array[i - 1] + array[i - 2];
+        }
+      return array;
+}
+
+
+// НАХОЖДЕНИЕ СРЕДНЕГО АРИФМЕТИЧЕСКОГО ПО СТОЛБЦАМ МАТРИЦЫ
+
+double[] AverageInColumns(int[,] matrix)  // в качестве результата метод выдает одномерный массив (ряд чисел), ср. арифм. - резутат деления, пожтому все величины double
+{
+    double[] average = new double[matrix.GetLength(1)]; // создаем массив, куда будет складывать ответы
+       
+    for (int j = 0; j < matrix.GetLength(1); j++) // задаем движение по столбцам (сначала проходится 1 столбец до конца, потом 2 и т.д.)
+    {
+        double sum = 0;                           // сюда будем складывать сумму элементов столбца
+        for (int i = 0; i < matrix.GetLength(0); i++)
+        {
+           sum += matrix [i, j];
+        }
+        average [j] = Math.Round(sum / matrix.GetLength(0), 1);  // после прохождения столбца до конца находим среднее по столбцу (это j-й элемент нашего массива-ответа)
+    }
+    return average;
+}
+
+
+//НАХОЖДЕНИЕ СРЕДНЕГО АРИФМЕТИЧЕСКОГО ПО СТРОКАМ МАТРИЦЫ
+
+double[] AverageInRows(int[,] matrix)  
+{
+    double[] average = new double[matrix.GetLength(0)]; 
+       
+    for (int i = 0; i < matrix.GetLength(0); i++) 
+    {
+        double sum = 0;                          
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+           sum += matrix [i, j];
+        }
+        average [i] = Math.Round(sum / matrix.GetLength(1), 1); 
+    }
+    return average;
 }
