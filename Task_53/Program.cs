@@ -4,7 +4,7 @@
 */
 Console.Clear();
 
-int[,] matrix = new int[3, 3];
+int[,] matrix = new int[4, 4];
 
 void FillMatriх(int[,] matrix)
 {
@@ -31,15 +31,16 @@ void PrintMatrix(int[,] matrix)
 
 void SwapRows(int[,] matrix)
 {
-   int rows = matrix.GetLength(0) - 1;
+    int rows = matrix.GetLength(0) - 1;
 
     for (int j = 0; j < matrix.GetLength(1); j++)
     {
-       int temp = matrix[0, j];
-       matrix[0, j] = matrix[rows, j];
-       matrix[rows, j] = temp;
+        int temp = matrix[0, j];
+        matrix [0, j] = matrix[rows, j];
+        matrix [rows, j] = temp; 
     }
 }
+
 
 FillMatriх(matrix);
 PrintMatrix(matrix);
