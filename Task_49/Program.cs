@@ -4,7 +4,7 @@
 */
 Console.Clear();
 
-int[,] matrix = new int[5, 5];
+int[,] matrix = new int[3, 4];
 
 void FillMatriх(int[,] matrix)
 {
@@ -29,7 +29,7 @@ void PrintMatrix(int[,] matrix)
     }
 }
 
-void FindEvenIndex(int[,] matrix)
+void SquareElementEvenIndex(int[,] matrix)
 {
     for (int i = 0; i < matrix.GetLength(0); i += 2)
     {
@@ -43,5 +43,5 @@ void FindEvenIndex(int[,] matrix)
 FillMatriх(matrix);
 PrintMatrix(matrix);
 System.Console.WriteLine();
-FindEvenIndex(matrix);
+SquareElementEvenIndex(matrix);
 PrintMatrix(matrix);
