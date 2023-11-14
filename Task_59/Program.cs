@@ -34,7 +34,7 @@ void PrintMatrix(int[,] matrix)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            System.Console.Write($"{matrix[i, j]} \t");
+            System.Console.Write($"{matrix[i, j]}, \t");
         }
         System.Console.WriteLine();
     }
@@ -84,11 +84,11 @@ void PrintArray(int[] array)
                 {
                     newMatrix[i, j] = matrix[i, j];
                 }             
-            }      
-        }
+        }      
     }
     return newMatrix;
 }
+
 
 FillMatriх(matrix);
 PrintMatrix(matrix);
