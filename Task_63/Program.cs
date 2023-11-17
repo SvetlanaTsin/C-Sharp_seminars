@@ -23,11 +23,11 @@
 
 Console.Clear();
 
-int numberN = 0;
+int numberN = 5;
 
 void Numbers(int n, int current = 1)
 {
-    //if (n == 0) System.Console.WriteLine("Необходимо число больше 0");
+    if (n == 0) System.Console.WriteLine("Необходимо число больше 0");
     if (n >= current) 
     {
         System.Console.Write(current + " ");
