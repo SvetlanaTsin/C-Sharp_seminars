@@ -33,28 +33,26 @@ void PrintMatrix(int[,] matrix)
     }
 }
 
-int[,] SortRowsDescending(int[,] matrix)
-{
-    int[,] newMatrix = new int[matrix.GetLength(0), matrix.GetLength(1)];
-    
+void SortRowsDescending(int[,] matrix)
+{   
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
-        for (int j = 0; j < matrix.GetLength(1) - 1; j++)
+        for (int j = 0; j < matrix.GetLength(1); j++)
         {
-        
-            if (matrix[i, j] < matrix[i, j +1])
+            int k = 0;
+            int max = j;
+            for (k = j; k < matrix.GetLength(1); k++)
             {
-                int temp = matrix[i, j];
-                newMatrix[i, j] = matrix[i, j + 1];
-                newMatrix[i, j + 1] = temp;
+               if (matrix[i, max] < matrix[i, k])
+               {
+                    max = k;
+               } 
             }
-            else
-            {
-                newMatrix[i, j] = matrix[i, j];
-            }
+            int temp = matrix[i, max];
+            matrix[i, max] = matrix[i, j];
+            matrix[i, j] = temp;
         }
-    }
-    return newMatrix;
+    }         
 }
 
 
@@ -62,5 +60,5 @@ int[,] SortRowsDescending(int[,] matrix)
 FillMatriх(matrix);
 PrintMatrix(matrix);
 System.Console.WriteLine();
-int[,] newUserMatrix = SortRowsDescending(matrix);
-PrintMatrix(newUserMatrix);
+SortRowsDescending(matrix);
+PrintMatrix(matrix);

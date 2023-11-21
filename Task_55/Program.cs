@@ -42,7 +42,7 @@ void SwapRowsAndColumns(int[,] matrix)
 
    for (int i = 0; i < rows; i++)
    {
-      for (int j = 0; j < i; j++) // почему j<i?
+      for (int j = 0; j < i; j++) 
       {
          int temp = matrix[i, j];
          matrix [i, j] = matrix[j, i];

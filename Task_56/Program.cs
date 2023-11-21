@@ -34,36 +34,45 @@ void PrintMatrix(int[,] matrix)
 
 int SumOfRow(int[,] matrix, int row)
 {   
-    int rowSum = 0;  
-    for (int i = 0; i < matrix.GetLength(0); i++) 
+    int rowSum = 0;
+    for (int j = 0; j < matrix.GetLength(1); j++)
     {
-        if (i == row)
-        {
-           for (int j = 0; j < matrix.GetLength(1); j++)
-           {
-               rowSum += matrix [i, j];
-           }  
-        }                               
-    }
+        rowSum += matrix [row, j];
+    }  
     return rowSum;
 }   
 
 int[] MinimumSumRow(int[,] matrix)
 {
-    int[] = {0, 0};
+    int[] RowNumberAndSum = new int[2];
+    RowNumberAndSum[1] = SumOfRow(matrix, RowNumberAndSum[0]);
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
-        for (int j = 0; j < matrix.GetLength(1); j++)
+        if (RowNumberAndSum[1] > SumOfRow(matrix, i))
         {
-            
+            RowNumberAndSum[0] = i;
+            RowNumberAndSum[1] = SumOfRow(matrix, RowNumberAndSum[0]);
         }
     }
+    return RowNumberAndSum;
 }
 
+void PrintArray(int[] array) 
+{
+    System.Console.Write("Индекс строки с наименьшей суммой элементов: ");
+    for (int i = 0; i < array.Length; i++)
+    {
+        System.Console.Write(array[i]);
+        if (i < array.Length - 1)
+        {
+            System.Console.Write(", наименьшая сумма элементов: ");
+        }   
+    }
+}
 
 
 FillMatriх(matrix);
 PrintMatrix(matrix);
 System.Console.WriteLine();
-int userRowSum = SumOfRow(matrix, 2);
-System.Console.WriteLine(userRowSum);
+int[] userResult = MinimumSumRow(matrix);
+PrintArray(userResult);

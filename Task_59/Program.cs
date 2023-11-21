@@ -13,11 +13,13 @@
 2 6 7
 */
 
+//ПЫТАЛАСЬ РЕШИТЬ, НО НЕ СМОГЛА:
+
 Console.Clear();
 
 int[,] matrix = new int[3, 3];
 
-void FillMatriх(int[,] matrix)
+void FillMatrix(int[,] matrix)
 {
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
@@ -34,7 +36,7 @@ void PrintMatrix(int[,] matrix)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            System.Console.Write($"{matrix[i, j]}, \t");
+            System.Console.Write($"{matrix[i, j]} \t");
         }
         System.Console.WriteLine();
     }
@@ -73,24 +75,32 @@ void PrintArray(int[] array)
     System.Console.WriteLine("]");
 }
 
-// int[,] CreateNewMatrix(int[,] matrix, int row, int column)
+int[,] CreateNewMatrix(int[,] matrix, int[] array)
 {
     int[,] newMatrix = new int[matrix.GetLength(0) - 1, matrix.GetLength(1) - 1];
+    int row = array[0];
+    int column = array[1];
 
     for (int i = 0; i < newMatrix.GetLength(0); i++)
     {   
-        for (int j = 0; j < newMatrix.GetLength(1); j++)
+        if (i == row)
         {
+            i++;
+            for (int j = 0; j < newMatrix.GetLength(1); j++)
+            {
+                if (j == column)
                 {
-                    newMatrix[i, j] = matrix[i, j];
-                }             
-        }      
-    }
+                   j++;
+                   newMatrix[i, j] = matrix[i, j]; 
+                }
+            }   
+        }             
+    }      
     return newMatrix;
 }
 
 
-FillMatriх(matrix);
+FillMatrix(matrix);
 PrintMatrix(matrix);
 System.Console.WriteLine();
 
@@ -98,7 +108,5 @@ int[] userMinIndex = FindMinIndex(matrix);
 PrintArray(userMinIndex);
 System.Console.WriteLine();
 
-int userRow = userMinIndex[0];
-int userColumn = userMinIndex[1]; 
-int[,] userNewMatrix = CreateNewMatrix(matrix, userRow, userColumn);
+int[,] userNewMatrix = CreateNewMatrix(matrix, userMinIndex);
 PrintMatrix(userNewMatrix);
